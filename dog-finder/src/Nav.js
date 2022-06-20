@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavBar.css';
+import './Nav.css';
 
 const Nav = ({ dogs }) => {
 	// Map out the individual dog links for the Nav Bar.
@@ -20,4 +20,4 @@ const Nav = ({ dogs }) => {
 	);
 };
 
-export default NavBar;
+export default Nav;

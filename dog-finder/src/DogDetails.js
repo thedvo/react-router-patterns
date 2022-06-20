@@ -1,27 +1,40 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './DogDetails.css';
 
-// renders details for individual dog
+/** shows all of the info about a single dog */
 
 const DogDetails = ({ dog }) => {
-	if (!dog) return <Redirect to="/dogs" />;
+	// take the dog name from the URL parameter
+	const { name } = useParams();
 
-	return (
-		<div className="DogDetails">
-			<div>
-				<img src={dog.src} alt={dog.name} />
-				<h2>{dog.name}</h2>
-				<h3>{dog.age} years old</h3>
-				<ul>
-					{dog.facts.map((fact, i) => (
-						<li key={i}>{fact}</li>
-					))}
-				</ul>
-				<Link to="/dogs">Go Back</Link>
+	// if there is a name, check to see if it is in the defaultProp data
+	if (name) {
+		const currDog = dog.find(
+			(dog) => dog.name.toLowerCase() === name.toLowerCase()
+		);
+
+		// if confirmed, render the dog details.
+		return (
+			<div className="DogDetails">
+				{' '}
+				<div>
+					<img src={currDog.src} alt={currDog.name} />
+
+					<h1>{currDog.name}</h1>
+					<h3>{currDog.age} years old</h3>
+					<ul>
+						{currDog.facts.map((fact, i) => (
+							<li key={i}>{fact}</li>
+						))}
+					</ul>
+				</div>
+				<Link to="/dogs">
+					<button>Go Back</button>
+				</Link>
 			</div>
-		</div>
-	);
+		);
+	}
 };
 
 export default DogDetails;

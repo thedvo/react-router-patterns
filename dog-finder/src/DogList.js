@@ -7,14 +7,14 @@ import './DogList.css';
 const DogList = ({ dogs }) => {
 	// map out each individual dog (d) with an index (i).
 	// providing info on Image Source, Image Alt, and Name for routing
-	const dawgs = dogs.map((d, i) => {
+	const dawgs = dogs.map((d, i) => (
 		<div key={i}>
 			<img src={d.src} alt={d.name} />
 			<h2>
 				<Link to={`/dogs/${d.name.toLowerCase()}`}>{d.name}</Link>
 			</h2>
-		</div>;
-	});
+		</div>
+	));
 
 	// Renders Home Page w/ heading and dog list component
 	return (
