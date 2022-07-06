@@ -32,6 +32,7 @@ const Routes = () => {
 			</Route>
 
 			{/* Shows form that will let user add new color */}
+			{/* The switch component allows you to do exclusive routing, so that instead of matching multiple routes to a component React will only match a single route. This makes the code more readable and easy to debug.  */}
 			<Route exact path="/colors/new">
 				<ColorForm addColor={addColor} />
 			</Route>

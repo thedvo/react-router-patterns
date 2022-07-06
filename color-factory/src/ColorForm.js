@@ -24,6 +24,7 @@ const ColorForm = ({ addColor }) => {
 		addColor({ [formData.name]: formData.hex });
 		setFormData(INITIAL_STATE);
 		history.push('/colors');
+		// when form is submitted, user is redirected to '/colors'
 	};
 
 	return (
@@ -37,7 +38,7 @@ const ColorForm = ({ addColor }) => {
 				value={formData.name}
 				onChange={handleChange}
 			/>
-			<label>Color Value</label>
+			<label htmlFor="hex">Color Value</label>
 			<input
 				id="hex"
 				type="color"
